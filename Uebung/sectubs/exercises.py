@@ -8,19 +8,11 @@ Created on 06.11.2017
 import collections
 from collections import Counter
 from itertools import chain
-import mmap
 
-import filecmp
 import os
-import subprocess
 import tempfile
-import unittest
-from lib2to3.pgen2.tokenize import tokenize as tokenize
 import operator
-from itertools import product
 import itertools
-from asyncore import read
-from sectubs.mono.break_mono import alphabet, loweralphabet
 
 class Exercises01(object):
    
@@ -51,50 +43,11 @@ class Exercises01(object):
         fileM = open(path)
         text = fileM.read() 
         return text  
-        
+    
     @staticmethod
-    def justdoit(filepath):
-        Exercises01.calcualteProbaleKeys('')
-        
-        return
-        
-        alphabet = Exercises01.getAphabet()
-        
-        loweralphabet = Exercises01.getLowerAlphabet()
-        
-        
-        text = Exercises01.readTextFromFile(r"C:\Users\Anna-Liisa\Documents\Uni\Master\ITSec\workspace\Uebung\sectubs\ex01_mono.ciphertext.txt")
-        
-        
-#         fileM = open(r"C:\Users\Anna-Liisa\Documents\Uni\Master\ITSec\workspace\Uebung\sectubs\ex01_mono.ciphertext.txt")
-#         text = fileM.read()
- 
-        
-        formatedtext = ''.join([i for i in text if i in alphabet])
-        
-        
-        formatedtext = formatedtext.lower();
-        
-        
-        
-        letterFrequencyOrder = "eatoinsrhldcumfpgwybvkxjqz"
+    def getCharacterFrequenciesInText(alphabet, size, text):
+        keywords = [''.join(i) for i in itertools.product(alphabet, repeat = size)]
 
-        frequencies = Counter(formatedtext)
-        print(formatedtext)
-
-
-        text = ''.join([i for i in text if i in loweralphabet])
-        
-        
-        sorted_x = sorted(frequencies.items(), key=operator.itemgetter(1), reverse=True) 
-        
-#         print(sorted_x)
-        
-#         keywords = itertools.product(loweralphabet, repeat = 3);
-        keywords = [''.join(i) for i in itertools.product(loweralphabet, repeat = 4)]
-        
-        print(keywords)
-        
         i = 0
         
         countlist= {}
@@ -103,42 +56,67 @@ class Exercises01(object):
         for k in keywords:
             i = 0
             fr = 0;
-            if(k in formatedtext):
-                for f in formatedtext:
-                    if(i < len(formatedtext)-2): 
-                        teststring = formatedtext[i] + formatedtext[i+1]+ formatedtext[i+2]
+            if(k in text):
+                for f in text:
+                    if(i < len(text)-2): 
+                        teststring = text[i] + text[i+1]+ text[i+2]
                         if(k == teststring):
                             fr += 1;
                         i += 1;    
             countlist[k] = fr
         
-        
-        
-        print(countlist)    
-        
         countlistsorted = sorted(countlist.items(), key=operator.itemgetter(1), reverse=True) 
         
         print(countlistsorted)
+        return countlistsorted
+    
+    @staticmethod
+    def formatText(text, alphabet):
+        formatedtext = ''.join([i for i in text if i in alphabet])
         
-            
-#         if s.find(b'jgt') != -1:
-#             print(s.find(b'jgt'))
-#             print(s.find(b'mtn'))
-#             print('true')
+        
+        formatedtext = formatedtext.lower();
+        return formatedtext
+    
+    
+    @staticmethod
+    def getInternetLetterFreqOder():
+        return "eatoinsrhldcumfpgwybvkxjqz"
+        
+    @staticmethod
+    def justdoit(filepath):
+        Exercises01.calcualteProbaleKeys('')
+
+        alphabet = Exercises01.getAphabet()
+        
+        loweralphabet = Exercises01.getLowerAlphabet()
+        
+        
+        text = Exercises01.readTextFromFile(r"C:\Users\Anna-Liisa\Documents\Uni\Master\ITSec\workspace\Uebung\sectubs\ex01_mono.ciphertext.txt")
+        
+ 
+        formatedtext = Exercises01.formatText(text, alphabet)
+ 
+        letterFreqInternet = Exercises01.getInternetLetterFreqOder()
 
 
-            
+        letterFreqCipherText = Counter(formatedtext)
+
+        
+        letterFreqCipherText = sorted(letterFreqCipherText.items(), key=operator.itemgetter(1), reverse=True) 
+        
+        
+        letterRowFreqCipherText = Exercises01.getCharacterFrequenciesInText(loweralphabet, 3, formatedtext)
+        
+        print(letterRowFreqCipherText)
+    
         
         key = [None] * 26
 
-        for i in sorted_x:
-            print(i)
+        for i in letterFreqCipherText:
+        
             
-            print(sorted_x.index(i))
-            
-            
-            #ersmalposition und value in letter frequencies
-            positionInFrequencyOrder = letterFrequencyOrder[sorted_x.index(i)];
+            positionInFrequencyOrder = letterFreqInternet[letterFreqCipherText.index(i)];
             
             positionInAlphabet = loweralphabet.index(positionInFrequencyOrder);
             
@@ -169,7 +147,7 @@ class Exercises01(object):
 #         key
             
             
-        result = Exercises01.encryptThisText(text, key)
+        result = Exercises01.encryptThisText(formatedtext, key)
         
         print(result)
         
@@ -245,17 +223,6 @@ class Exercises01(object):
     
     @staticmethod
     def encrypt(text, key, path):
-#         fname = Exercises01.tmpfile()
-# 
-#         with open(fname, 'wb') as f:
-#             f.write(b'Exerciseww 01')
-#             f.seek(0)
-#             
-#             
-#         print(fname)
-        
-            
-
 
         
         fileM = open(r"C:\Users\Anna-Liisa\Documents\Uni\Master\ITSec\workspace\Uebung\sectubs\tmp_qrdy9gp")
@@ -288,10 +255,6 @@ class Exercises01(object):
         for t in formatedtext:
             position = loweralphabet.index(t)
             result = result + key[position]
-            
-
-        print(result)
-        
         
         
         
