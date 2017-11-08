@@ -4,11 +4,14 @@ Created on 06.11.2017
 @author: Anna-Liisa
 '''
 import argparse
+
+import sys
+
 from sectubs.mono.analysis import *
 
 
 
-parser = argparse.ArgumentParser(description='Encrypting')
+parser = argparse.ArgumentParser(description='attempt to break mono encryption')
 parser.add_argument('out', type=str)
 args = parser.parse_args()
 
@@ -32,4 +35,4 @@ if(args.out != None):
 
     formatedtext = formatedtext.lower();
 
-    print(decrypt(formatedtext))
+    sys.stdout.write(decrypt(formatedtext))
