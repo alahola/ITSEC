@@ -18,7 +18,7 @@ Außerdem könnte sie online nachsehen ob jemand ihren Schmuck weiterverkauft.
 Keyspace ROT13: Wenn man ROT13 als Rotationverschlüsselung um 13 stellen versteht, dann ist die Größe des Schlüsselraums 1. Denn der Schlüssel ist die 13. Unter der Annahme das eine allgemeine Rotationsverschlüsselung mit Charakterrotation um n Stellen. Dann können alle Buchstaben des Alphabets mal an erster Stelle stehen, also hat man 26 verschiedene Schlüssel. Eine Rotation um 0 Stellen ist trivial, also gibt es 25 sinnvolle Schlüssel.
 2.b) 26^3
 2.c) 2^256
-2.d) 26^26
+2.d) k!
 
 
 
