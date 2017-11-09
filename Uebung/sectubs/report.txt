@@ -1,6 +1,9 @@
 ﻿it sec ex01
 
 
+Keyspace ROT13: Wenn man ROT13 als Rotationverschlüsselung um 13 stellen versteht, dann ist die Größe des Schlüsselraums 1. Denn der Schlüssel ist die 13. Unter der Annahme das eine allgemeine Rotationsverschlüsselung mit Charakterrotation um n Stellen. Dann können alle Buchstaben des Alphabets mal an erster Stelle stehen, also hat man 26 verschiedene Schlüssel. Eine Rotation um 0 Stellen ist trivial, also gibt es 25 sinnvolle Schlüssel.
+
+
 
 
 3. Eve sollte alle möglichen Paare der drei abgefangen Nachrichten bilden. Diese Paare nimmt sie als Eingabeparameter der XOR-Funktion. Eines der Ergebnisse ist der Schlüssel K. Um herauszufinden welches der Schlüssel K ist, muss sie nun die Ergebnisse mit den ursprünglichen Nachrichten als Eingabeparameter der XOR-Funktion wählen. Wenn eine ursprüngliche Nachricht gefunden wurde, war der erste Eingabeparameter K und die Eingabeparameter der ersten XOR-Operation waren M2 und C2. Damit lässt sich mit M1 = XOR(C1, K) bestimmen.
