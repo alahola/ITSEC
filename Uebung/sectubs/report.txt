@@ -1,7 +1,24 @@
 ﻿it sec ex01
+ 
+1.a)
+Confidentiality - Der Dieb könnte durch die persönlichen Unterlagen von Alice gegangen sein, 
+oder wertvolle Gegenstände gestohlen haben (TV, Laptop, Schmuck)
+Integrity - Durch das Stehlen des Laptops kann der Dieb die Möglichkeit bekommen haben sich in ihren Bank Account zu hacken
+1.b)
+Prevention - Alice könnte sich durch erweiterete Sicherheitsmaßnahmen vor Einbrüchen schützen (z.B. Gesichtserkennung, Sicherheitsschloss). Außerdem könnte sie ihre wertvollen Unterlagen und Gegenstände zusätzlich in einem Safe aufbewahren.
+Detection - Ein Alarmsystem bestehend aus Sensoren und Kameras könnte das Eindringen eines Einbrechers erkennen und die Polizei informieren.
+Analysis - Nach einem Einbruch könnte Alice alle ihre Kreditkarten und Bankkonten sperren lassen. 
+Außerdem könnte sie online nachsehen ob jemand ihren Schmuck weiterverkauft.
 
 
+
+
+
+2.a)
 Keyspace ROT13: Wenn man ROT13 als Rotationverschlüsselung um 13 stellen versteht, dann ist die Größe des Schlüsselraums 1. Denn der Schlüssel ist die 13. Unter der Annahme das eine allgemeine Rotationsverschlüsselung mit Charakterrotation um n Stellen. Dann können alle Buchstaben des Alphabets mal an erster Stelle stehen, also hat man 26 verschiedene Schlüssel. Eine Rotation um 0 Stellen ist trivial, also gibt es 25 sinnvolle Schlüssel.
+2.b) 26^3
+2.c) 2^256
+2.d) 26^26
 
 
 
