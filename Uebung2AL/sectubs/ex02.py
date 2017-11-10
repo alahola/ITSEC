@@ -10,10 +10,10 @@ try:
     # values than those provided in the script that was handed
     # out. Develop your solution robust enough to work with
     # various kinds and variations of input.
-    import ex02_testdata_lecturer as testdata
+    from sectubs import ex02_testdata as testdata
 
 except:
-    import ex02_testdata as testdata
+    from sectubs import ex02_testdata as testdata
 
 
 import os
@@ -31,7 +31,7 @@ class Ex02(unittest.TestCase):
     def call(tool, params):
         my_dir = os.path.dirname(os.path.abspath(__file__))
         script = os.path.join(my_dir, tool)
-        cmd = 'python3 "{}" {}'.format(script, params)
+        cmd = 'python "{}" {}'.format(script, params)
 
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
         out, _ = p.communicate()
