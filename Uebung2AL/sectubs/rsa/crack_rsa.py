@@ -7,7 +7,7 @@ import argparse
 
 import sys
 
-from sectubs.rsa_methods import getPlain
+from rsa_methods import getPlain
 
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('-e', type=int)
