@@ -19,6 +19,7 @@ generator = args.g;
 prime = args.n;
 
 result = solveDH(args.alice, args.bob, generator, prime)
+# sys.stdout(str(result))
 sys.stdout.write(str(result))
 
 

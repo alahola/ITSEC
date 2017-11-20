@@ -1,7 +1,7 @@
 '''
 Created on 10.11.2017
 
-@author: Anna-Liisa, Leif
+@author: Anna-Liisa
 '''
 def getPossibleSecretNumbers(publicNumber, generator, prime, testFrom, testTo):
     i = testFrom;
