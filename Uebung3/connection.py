@@ -15,16 +15,27 @@ class MiddleMan:
     def write(self, m):
         self.ssl_socket.write(m)
 
+
 alice = MiddleMan();
 eve = MiddleMan();
 
+oldm1 = ""
+oldm2 = ""
+m1 = ""
+m2 = ""
 while True:
-    m1 = alice.read()
-    m2 = eve.read()
-    print("Alice: " + str(m1))
-    print("Eve: " + str(m2))
+    oldm1 = m1
+    oldm2 = m2
+    try:
+        m1 = alice.read()
+        m2 = eve.read()
+        eve.write(m1)
+        alice.write(m2)
+    except ssl.SSLEOFError:
+        flag = oldm1
+        break;
 
-    eve.write(m1)
-    alice.write(m2)
+print("Flagge: " + str(flag))
+
 
 
