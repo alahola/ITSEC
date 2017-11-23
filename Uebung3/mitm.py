@@ -46,7 +46,7 @@ def doExercise(ident, port):
             break;
     strf = str(flag)
     flag = strf[14:len(strf) - 3]
-    write(flag, "src/flag.txt")
+    write(flag, "flag.txt")
 
 
 def write(writin: str, filename: str):

@@ -1,0 +1,12 @@
+﻿2. a) Wenn Alice die Nachricht erst verschlüssellt und dann signiert,
+dann kann Bob die Signatur von Alice entfernen und die Nachricht trotzdem
+weiter schicken. Bob kann sogar die Nachricht von Alice als seine ausgeben.
+Dave hat aber keinen kryptographischen Beweis, dass Alice die Nachricht gesendet hat.
+
+b) Solution 1:
+Wenn Alice in ihre Nachricht nicht einfach schreibt, "ich liebe dich"
+sondern Absender und Empfänger dazu schreibt, dann wird durch die Signatur der Inhalt der Nachricht
+vor veränderung geschützt.
+
+Solution 2:
+Alice könnte die Nachricht signieren. Dann verschlüsseln und dann den Ciphertext auch signieren.
