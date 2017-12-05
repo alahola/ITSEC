@@ -65,7 +65,8 @@ parser.add_argument('PORT', type=int)
 args = parser.parse_args()
 
 for m in doExercise(args.DOMAIN, args.PORT):
-    sys.stdout.write(byteToString(m))
+    print(m)
+    #sys.stdout.write(byteToString(m))
 
 
 
