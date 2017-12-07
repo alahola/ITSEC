@@ -14,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="mitm.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Uebung3/mitm.py">
+      <file leaf-file-name="weird_client.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Uebung4/src/weird_client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="631">
-              <caret line="68" column="5" lean-forward="false" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+            <state relative-caret-position="332">
+              <caret line="97" column="0" lean-forward="true" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -26,24 +26,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mitm.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Uebung4/src/mitm.py">
+      <file leaf-file-name="ex04.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Uebung4/src/ex04.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="28" column="30" lean-forward="true" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+            <state relative-caret-position="260">
+              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="connection.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Uebung3/connection.py">
+      <file leaf-file-name="ex04_testdata.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Uebung4/src/ex04_testdata.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="150">
+              <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -65,13 +63,15 @@
       <list>
         <option value="$PROJECT_DIR$/Uebung3/mitm.py" />
         <option value="$PROJECT_DIR$/Uebung4/src/mitm.py" />
+        <option value="$PROJECT_DIR$/Uebung4/src/ex04_testdata.py" />
+        <option value="$PROJECT_DIR$/Uebung4/src/weird_client.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="86" />
     <option name="width" value="1247" />
-    <option name="height" value="1447" />
+    <option name="height" value="1106" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -88,6 +88,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -95,17 +96,6 @@
             <path>
               <item name="ITSEC" type="b2602c69:ProjectViewProjectNode" />
               <item name="ITSEC" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ITSEC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ITSEC" type="462c0819:PsiDirectoryNode" />
-              <item name="Uebung3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ITSEC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ITSEC" type="462c0819:PsiDirectoryNode" />
-              <item name="Uebung3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ITSEC" type="b2602c69:ProjectViewProjectNode" />
@@ -122,7 +112,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -145,7 +134,35 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.mitm">
+  <component name="RunManager" selected="Python tests.Unittests in ex04.py">
+    <configuration name="Unittests for ex04.Ex04.test_05_weirdclient" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Uebung4/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="ITSEC" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;ex04.Ex04.test_05_weirdclient&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="Unittests in ex04.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Uebung4/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="ITSEC" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/Uebung4/src/ex04.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
     <configuration name="mitm (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -162,7 +179,6 @@
       <option name="PARAMETERS" value="weird.sec.tu-bs.de 3333" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="mitm" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -180,16 +196,38 @@
       <option name="PARAMETERS" value="weird.sec.tu-bs.de 6666" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
     </configuration>
-    <list size="2">
+    <configuration name="weird_client" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Uebung4/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="ITSEC" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Uebung4/src/weird_client.py" />
+      <option name="PARAMETERS" value="weird.sec.tu-bs.de 6666" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.mitm" />
       <item index="1" class="java.lang.String" itemvalue="Python.mitm (1)" />
+      <item index="2" class="java.lang.String" itemvalue="Python.weird_client" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in ex04.py" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests for ex04.Ex04.test_05_weirdclient" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.mitm" />
-        <item index="1" class="java.lang.String" itemvalue="Python.mitm (1)" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in ex04.py" />
+        <item index="1" class="java.lang.String" itemvalue="Python.weird_client" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests for ex04.Ex04.test_05_weirdclient" />
+        <item index="3" class="java.lang.String" itemvalue="Python.mitm" />
+        <item index="4" class="java.lang.String" itemvalue="Python.mitm (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -209,19 +247,52 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Unittests_for_ex04_Ex04_test_05_weirdclient - 2017.12.07 at 11h 22m 19s.xml">
+      <configuration name="Unittests for ex04.Ex04.test_05_weirdclient" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_ex04_Ex04_test_05_weirdclient - 2017.12.07 at 11h 23m 07s.xml">
+      <configuration name="Unittests for ex04.Ex04.test_05_weirdclient" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_ex04_Ex04_test_05_weirdclient - 2017.12.07 at 11h 23m 55s.xml">
+      <configuration name="Unittests for ex04.Ex04.test_05_weirdclient" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_ex04_Ex04_test_05_weirdclient - 2017.12.07 at 11h 24m 24s.xml">
+      <configuration name="Unittests for ex04.Ex04.test_05_weirdclient" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_ex04_py - 2017.12.07 at 11h 19m 07s.xml">
+      <configuration name="Unittests in ex04.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_ex04_py - 2017.12.07 at 11h 25m 36s.xml">
+      <configuration name="Unittests in ex04.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_ex04_py - 2017.12.07 at 11h 25m 48s.xml">
+      <configuration name="Unittests in ex04.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_ex04_py - 2017.12.07 at 11h 25m 54s.xml">
+      <configuration name="Unittests in ex04.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_ex04_py - 2017.12.07 at 11h 27m 09s.xml">
+      <configuration name="Unittests in ex04.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_ex04_py - 2017.12.07 at 11h 27m 29s.xml">
+      <configuration name="Unittests in ex04.py" configurationId="tests" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="86" y="0" width="1247" height="1447" extended-state="0" />
+    <frame x="82" y="-11" width="1849" height="1102" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2810723" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18828681" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33183858" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33119658" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -243,19 +314,11 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Uebung3/mitm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="1575">
+          <caret line="68" column="5" lean-forward="false" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Uebung4/src/flag.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -269,6 +332,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Uebung4/src/mitm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="28" column="30" lean-forward="true" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Uebung3/mitm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Uebung4/src/flag.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Uebung4/src/mitm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Uebung3/mitm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="631">
@@ -279,10 +375,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Uebung4/src/mitm.py">
+    <entry file="file://$PROJECT_DIR$/Uebung3/connection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="28" column="30" lean-forward="true" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Uebung4/src/ex04_testdata.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Uebung4/src/weird_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="97" column="0" lean-forward="true" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Uebung4/src/ex04.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding />
         </state>
       </provider>
