@@ -33,13 +33,17 @@ class WeirdClient:
         yield self.write("Nono. UNTIL I come and get him.")
         #------
         while True:
-            m = self.read()
-            x = stringToInt(m)
-            yield m
-            yield self.response(x)
-            yield self.challenge()
-            yield self.read()
-            yield self.read()
+            try:
+                m = self.read()
+                x = stringToInt(m)
+                yield m
+                yield self.response(x)
+                yield self.challenge()
+                yield self.read()
+                yield self.read()
+            except ValueError:
+                write(m, "flag.txt")
+
 
     def sub_proto(self):
         m = self.read()
@@ -99,8 +103,6 @@ for m in alice.weird_proto():
     sys.stdout.write(repr(m))
     print()
 
-for i in range(0, 1024):
-    sys.stdout.write("aaa")
 
 
 
