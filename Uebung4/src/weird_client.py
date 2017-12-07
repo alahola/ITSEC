@@ -31,13 +31,15 @@ class WeirdClient:
         yield self.response(x)
         yield self.read()
         yield self.write("Nono. UNTIL I come and get him.")
-        for m in self.sub_proto():
+        #------
+        while True:
+            m = self.read()
+            x = stringToInt(m)
             yield m
-        yield self.write("Nono no. You stay in the room, and make sure HE doesn't leave.")
-        for m in self.sub_proto():
-            yield m
-        yield self.write(self.speech[2])
-        yield self.read()
+            yield self.response(x)
+            yield self.challenge()
+            yield self.read()
+            yield self.read()
 
     def sub_proto(self):
         m = self.read()
@@ -95,7 +97,10 @@ alice = WeirdClient(args.DOMAIN, args.PORT)
 
 for m in alice.weird_proto():
     sys.stdout.write(repr(m))
+    print()
 
+for i in range(0, 1024):
+    sys.stdout.write("aaa")
 
 
 

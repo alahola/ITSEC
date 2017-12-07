@@ -34,7 +34,7 @@ class Ex04(unittest.TestCase):
     def call(tool, params):
         my_dir = os.path.dirname(os.path.abspath(__file__))
         script = os.path.join(my_dir, tool)
-        cmd = 'python3 "{}" {}'.format(script, params)
+        cmd = 'python "{}" {}'.format(script, params)
 
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
         out, _ = p.communicate()
