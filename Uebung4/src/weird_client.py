@@ -42,7 +42,7 @@ class WeirdClient:
                 yield self.read()
                 yield self.read()
             except ValueError:
-                write(m, "flag.txt")
+                writeFile(m, "flag.txt")
 
 
     def sub_proto(self):
@@ -78,7 +78,7 @@ class WeirdClient:
         return self.write(str(self.ch) + '000\n')
 
 
-def write(writin: str, filename: str):
+def writeFile(writin: str, filename: str):
     file = open(filename, "r+")
     file.write(writin)
     file.close()
