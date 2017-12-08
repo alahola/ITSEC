@@ -21,7 +21,11 @@ def checksum(msg):
     return s
 
 parser = argparse.ArgumentParser(description='send packet')
-parser.add_argument('--out', type=str, default='')
+group = parser.add_mutually_exclusive_group(required=True)
+group.add_argument('--syn')
+group.add_argument('--xmas')
+group.add_argument('--fin')
+group.add_argument('--null')
 parser.add_argument('DOMAIN', type=str)
 parser.add_argument('PORT', type=int)
 args = parser.parse_args()
@@ -62,17 +66,17 @@ ip_header = pack('!BBHHHBBH4s4s' , ip_ihl_ver, ip_tos, ip_tot_len, ip_id, ip_fra
 
 # tcp header fields
 tcp_source = 1234   # source port
-tcp_dest = 80   # destination port
+tcp_dest = args.PORT   # destination port
 tcp_seq = 454
 tcp_ack_seq = 0
 tcp_doff = 5    #4 bit field, size of tcp header, 5 * 4 = 20 bytes
 #tcp flags
-tcp_fin = 0
-tcp_syn = 1
+tcp_fin = 1 if args.xmas is not None | args.fin is not None else 0
+tcp_syn = 1 if args.syn is not None else 0
 tcp_rst = 0
-tcp_psh = 0
+tcp_psh = 1 if args.xmas is not None else 0
 tcp_ack = 0
-tcp_urg = 0
+tcp_urg = 1 if args.xmas is not None else 0
 tcp_window = socket.htons (5840)    #   maximum allowed window size
 tcp_check = 0
 tcp_urg_ptr = 0
@@ -86,7 +90,7 @@ tcp_header = pack('!HHLLBBHHH' , tcp_source, tcp_dest, tcp_seq, tcp_ack_seq, tcp
 user_data = 'Hello, how are you'
 
 # pseudo header fields
-source_address = socket.inet_aton( source_ip )
+source_address = socket.inet_aton(source_ip)
 dest_address = socket.inet_aton(dest_ip)
 placeholder = 0
 protocol = socket.IPPROTO_TCP
