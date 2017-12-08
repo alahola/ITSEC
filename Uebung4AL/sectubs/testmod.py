@@ -1,3 +1,8 @@
+'''
+Created on Dec 6, 2017
+
+@author: y0066709
+'''
 import argparse
 
 import ssl
@@ -58,15 +63,21 @@ def byteToString(byte: bytes):
     string = str(byte)
     return string[2:len(string)-1]
 
-parser = argparse.ArgumentParser(description='doin man in the middle')
-parser.add_argument('--out', type=str, default='')
-parser.add_argument('DOMAIN', type=str)
-parser.add_argument('PORT', type=int)
-args = parser.parse_args()
 
-for m in doExercise(args.DOMAIN, args.PORT):
+
+
+# parser = argparse.ArgumentParser(description='doin man in the middle')
+# parser.add_argument('--out', type=str, default='')
+# parser.add_argument('DOMAIN', type=str)
+# parser.add_argument('PORT', type=int)
+# args = parser.parse_args()
+
+
+m = MiddleMan("weird.sec.tu-bs.de", "6666")
+
+for m in doExercise("weird.sec.tu-bs.de", "6666"):
     print(m)
-    #sys.stdout.write(byteToString(m))
+    sys.stdout.write(byteToString(m))
 
 
 
