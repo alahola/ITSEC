@@ -74,7 +74,7 @@ class Ex03(unittest.TestCase):
         page = request.urlopen(URL)
         s = page.read()
 
-        names = self.read_line(os.path.join("..", "NAME")).split(' ')[:2]
+        names = self.read_line(os.path.join(".", "NAME")).split(' ')[:2]
         for x in names:
             self.assertIn(
                 str.encode(x.lower()), s.lower(), "Cannot find your key and name online :(")
