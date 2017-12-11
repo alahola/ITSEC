@@ -21,7 +21,7 @@ group.add_argument('--syn', action='store_true')
 group.add_argument('--xmas', action='store_true')
 group.add_argument('--fin', action='store_true')
 group.add_argument('--null', action='store_true')
-parser.add_argument('DOMAIN', type=str)
+parser.add_argument('IP/DOMAIN', type=str)
 parser.add_argument('PORT', type=int)
 args = parser.parse_args()
 
@@ -78,7 +78,7 @@ tcp_packet = pack(
 # TCP-Pseudoheader
 # 4byte
 src_ip = b'127.0.0.1'
-dest_ip = bytes(socket.gethostbyname(args.DOMAIN), 'UTF-8')
+dest_ip = bytes(socket.gethostbyname(vars(args)['IP/DOMAIN']), 'UTF-8')
 # 2byte
 prot = socket.IPPROTO_TCP
 tcp_len = len(tcp_packet)
@@ -110,4 +110,4 @@ tcp_packet = pack(
 )
 
 s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_RAW)
-s.sendto(tcp_packet, (socket.gethostbyname(args.DOMAIN), 0))
+s.sendto(tcp_packet, (socket.gethostbyname(vars(args)['IP/DOMAIN']), 0))
