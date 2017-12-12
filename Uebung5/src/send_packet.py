@@ -111,3 +111,4 @@ tcp_packet = pack(
 
 s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_RAW)
 s.sendto(tcp_packet, (socket.gethostbyname(vars(args)['IP/DOMAIN']), 0))
+s.close()

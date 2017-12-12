@@ -10,7 +10,7 @@ send_packet.py: error: the following arguments are required: IP/DOMAIN, PORT
 
 CLIENT = b'''
 usage: client.py [-h] --shared-key INT --num-knocks INT IP/DOMAIN PORT
-client.py: error: the following arguments are required: IP/DOMAIN, PORT
+client.py: error: the following arguments are required: --shared-key, --num-knocks, IP/DOMAIN, PORT
 '''
 
 SERVER = b'''
@@ -30,3 +30,4 @@ def verify_synopsis(x, s):
         return (SYNOPSIS[x].strip() in s)
     except KeyError:
         return False
+
