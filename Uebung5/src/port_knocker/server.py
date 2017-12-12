@@ -4,7 +4,7 @@ from _sha256 import sha256
 from _thread import start_new_thread
 
 from scapy.layers.inet import IP, UDP
-from scapy.sendrecv import sniff, send
+from scapy.sendrecv import sniff, send, sendp
 
 
 class server(object):
@@ -16,15 +16,15 @@ class server(object):
         while True:
             packets = sniff(count=1, filter='udp and port ' + str(port))
             packet = packets[0]
-            c = random.randint(0, 10000)
-            print(c)
+            c = random.randint(0, 100)
             c_packet = IP(
                 dst=packet['IP'].src,
                 src=packet['IP'].dst
             ) / UDP(
                 sport=port,
-                dport=packet['UDP'.sport]
-            ) / c
+                dport=packet['UDP'].sport
+            ) / bytes(c)
+            sendp(c_packet)
             ports = []
             for i in range(0, knocks - 1):
                 ports.append(self.p(i, c))
