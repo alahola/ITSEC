@@ -1,10 +1,8 @@
 import argparse
 from _sha256 import sha256
 
-from scapy.layers.inet import IP, UDP, send, sniff, TCP
-from scapy.sendrecv import sr1
-from scapy.layers.dns import DNS
-import random
+from scapy.layers.inet import IP, UDP, TCP
+from scapy.sendrecv import send, sniff
 
 
 class client(object):
@@ -16,80 +14,43 @@ class client(object):
         self.port = port
         
         c_packet = IP(
-            dst='localhost'
+            dst=self.host
         ) / UDP(
-            dport=6666
+            dport=self.port
         )
         send(c_packet)
-        
-        while True:
-            packets = sniff(count=1, filter='udp and port ' + str(port))
-            print(packets)
-            packet = packets[0]
+
+        filter = 'udp and port ' + str(port) + ' and host ' + self.host
+        packets = sniff(count=1, filter=filter)
+        print(packets)
+        packet = packets[0]
             
-            self.getLayersOfPacket(packet)
-            
-            if packet and packet.haslayer(UDP):
-                udp = packet["UDP"]
-                challenge = udp.payload
-                print("Client received following challenge: " , challenge)
+        if packet and packet.haslayer(UDP):
+            udp = packet["UDP"]
+            challenge = udp.payload
+            print("Client received following challenge: " , challenge)
                 
-                knock_point = 0;
+            knock_point = 0
                 
-                ports = [] 
+            ports = []
                 
-                c = self.byteToString(challenge)
-                cInt = int(c)
-                while knock_point < self.knocks:
+            c = self.byteToString(challenge)
+            cInt = int(c)
+            while knock_point < self.knocks:
                     
-                    ports.append(self.p(knock_point, cInt, key))
-                    knock_point = knock_point+1
+                ports.append(self.p(knock_point, cInt, key))
+                knock_point = knock_point+1
                 
-                for port in ports:
-                    tcp_packet = IP(
+            for port in ports:
+                tcp_packet = IP(
                     dst=host
-                    ) / TCP(
-                    sport=port,
+                ) / TCP(
+                   sport=port,
                     dport=port
-                    )
+                )
                     
-                    send(tcp_packet) 
-                
-            
+            send(tcp_packet)
 
-
-            
-            
-            
-           
-#             if packet and packet.haslayer(UDP):
-#                 print(packet)
-
-#         packet = IP(
-#             dst=host
-#         ) / UDP(
-#             dport=port
-#         )
-#         ans = sr1(packet)
-
-    def getLayersOfPacket(self, packet):
-        layers = []
-        counter = 0
-        
-        while packet.getlayer(counter) != None:
-            layer = packet.getlayer(counter)
-            if (layer != None):
-                print(layer.name)
-                layers.append(layer.name)
-            else:
-                break
-            counter += 1
-
-
-        udp = packet["UDP"]
-        print(udp.payload)
-        print("Layers are:\t\t",layers)
-    
             
     def byteToString(self, byte: bytes):
         string = str(byte)
