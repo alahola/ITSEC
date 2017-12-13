@@ -47,7 +47,7 @@ class client(object):
                 
                 for port in ports:
                     tcp_packet = IP(
-                    dst='localhost'
+                    dst=host
                     ) / TCP(
                     sport=port,
                     dport=port
