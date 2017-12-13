@@ -1,8 +1,7 @@
 import argparse
 from _sha256 import sha256
 
-from scapy.layers.inet import IP, UDP, TCP
-from scapy.sendrecv import send, sniff
+from scapy.all import *
 
 
 class client(object):
@@ -16,39 +15,39 @@ class client(object):
         c_packet = IP(
             dst=self.host
         ) / UDP(
+            sport=self.port,
             dport=self.port
         )
         send(c_packet)
 
-        filter = 'udp and port ' + str(port) + ' and host ' + self.host
+        filter = 'udp and port ' + str(self.port) + ' and host ' + str(self.host)
         packets = sniff(count=1, filter=filter)
-        print(packets)
         packet = packets[0]
-            
-        if packet and packet.haslayer(UDP):
-            udp = packet["UDP"]
-            challenge = udp.payload
-            print("Client received following challenge: " , challenge)
+
+        udp = packet["UDP"]
+        challenge = udp.payload
+        print("Client received challenge: " , challenge)
                 
-            knock_point = 0
+        knock_point = 0
                 
-            ports = []
+        ports = []
                 
-            c = self.byteToString(challenge)
-            cInt = int(c)
-            while knock_point < self.knocks:
-                    
-                ports.append(self.p(knock_point, cInt, key))
-                knock_point = knock_point+1
+        c = self.byteToString(challenge)
+        cInt = int(c)
+        while knock_point < self.knocks:
+            ports.append(self.p(knock_point, cInt, key))
+            knock_point = knock_point+1
                 
-            for port in ports:
-                tcp_packet = IP(
-                    dst=host
-                ) / TCP(
-                   sport=port,
-                    dport=port
-                )
-                    
+        for port in ports:
+            print("Sending tcp to ", port)
+            tcp_packet = IP(
+                dst=host
+            ) / TCP(
+                sport=self.port,
+                dport=port,
+                flags='S'
+            )
+            send(tcp_packet)
             send(tcp_packet)
 
             
@@ -58,7 +57,6 @@ class client(object):
 
     def p(self, i: int, c: int, k: int):
         myString = str((k * c + i))
-        print(myString)
         encodedString = myString.encode()
         sharesult = sha256(encodedString)
         val_hex = sharesult.hexdigest()
@@ -75,4 +73,4 @@ parser.add_argument('host', metavar='IP/DOMAIN', type=str)
 parser.add_argument('port', metavar='PORT', type=int)
 args = parser.parse_args()
 
-s = client(args.host, args.port, args.shared_key, args.num_knocks)
+s = client(socket.gethostbyname(args.host), args.port, args.shared_key, args.num_knocks)

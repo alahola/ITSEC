@@ -1,11 +1,16 @@
 import argparse
 import random
 from _sha256 import sha256
-from _thread import start_new_thread
 from threading import Thread
+from scapy.all import *
 
-from scapy.layers.inet import IP, UDP, Raw, TCP
-from scapy.sendrecv import sniff, send, sendp, sr1
+
+def unlock():
+    print("unlocked")
+
+
+def log(msg: str):
+    print(msg)
 
 
 class server(object):
@@ -14,6 +19,7 @@ class server(object):
         self.port = port
         self.key = key
         self.knocks = knocks
+
         while True:
             packets = sniff(count=1, filter='udp and port ' + str(port))
             packet = packets[0]
@@ -25,42 +31,39 @@ class server(object):
                 sport=port,
                 dport=packet['UDP'].sport
             ) / str(c)
-            print(str(c_packet))
+            send(c_packet)
+            send(c_packet)
+            send(c_packet)
             send(c_packet)
             print("challenge send: ", c)
             ports = []
             knock_point = 0
-                
+
             while knock_point < self.knocks:
                 ports.append(self.p(knock_point, c, key))
-                knock_point = knock_point+1
+                knock_point = knock_point + 1
 
-            portObserver = Thread(
-                target = self.observeKnocks,
-                args=(packet['IP'].src, ports)
-            )
+            log("Starting challenge with " + packet['IP'].src + " on ports " + str(ports))
+            filter = 'tcp and tcp[tcpflags] & (tcp-syn) != 0 and ip host ' + packet['IP'].src
+            if len(ports) != 1:
+                filter += ' and dst port ('
+                first = True
+                for p in ports:
+                    if first:
+                        filter += str(p)
+                        first = False
+                    else:
+                        filter += ' or ' + str(p)
+                filter += ')'
+            else:
+                filter += ' and dst port ' + str(ports[0])
+            packets = sniff(count=self.knocks, filter=filter)
+            
+            unlock()
 
-
-    def observeKnocks(self, src: str, ports: list):
-        print("Starting challenge with " + src + " on ports " + str(ports))
-        filter = 'tcp and tcp[tcpflags] & (tcp-syn) != 0 and ip host ' + src
-        if len(ports) != 1:
-            filter += ' and dst port ('
-            first = True
-            for p in ports:
-                if first:
-                    filter += str(p)
-                else:
-                    filter += ' or ' + str(p)
-            filter += ')'
-        else:
-            filter += ' and dst port ' + str(ports[0])
-        packets = sniff(count=self.knocks, filter=filter)
-        print('unlocked')
 
     def p(self, i: int, c: int, k: int):
         myString = str((k * c + i))
-        print(myString)
         encodedString = myString.encode()
         sharesult = sha256(encodedString)
         val_hex = sharesult.hexdigest()
