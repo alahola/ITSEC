@@ -1,5 +1,6 @@
 import argparse
 from _sha256 import sha256
+from time import sleep
 
 from scapy.all import *
 
@@ -39,6 +40,7 @@ class client(object):
             ports.append(self.p(knock_point, cInt, key))
             knock_point = knock_point + 1
 
+        sleep(1)
         for port in ports:
             print("Sending tcp to ", port)
             tcp_packet = IP(
@@ -48,7 +50,6 @@ class client(object):
                 dport=port,
                 flags='S'
             )
-            send(tcp_packet)
             send(tcp_packet)
 
             

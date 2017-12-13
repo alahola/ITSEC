@@ -1,12 +1,11 @@
 import argparse
-import random
+import operator
 from _sha256 import sha256
-from threading import Thread
 from scapy.all import *
 
 
 def unlock():
-    print("unlocked")
+    log("unlocked")
 
 
 def log(msg: str):
@@ -19,6 +18,8 @@ class server(object):
         self.port = port
         self.key = key
         self.knocks = knocks
+
+        log("Starting port knocker daemon...")
 
         while True:
             packets = sniff(count=1, filter='udp and port ' + str(port))
@@ -35,7 +36,6 @@ class server(object):
             send(c_packet)
             send(c_packet)
             send(c_packet)
-            print("challenge send: ", c)
             ports = []
             knock_point = 0
 
@@ -43,8 +43,8 @@ class server(object):
                 ports.append(self.p(knock_point, c, key))
                 knock_point = knock_point + 1
 
-            log("Starting challenge with " + packet['IP'].src + " on ports " + str(ports))
-            filter = 'tcp and tcp[tcpflags] & (tcp-syn) != 0 and ip host ' + packet['IP'].src
+            log("Starting challenge " + str(c) + " with " + packet['IP'].src + " on ports " + str(ports))
+            filter = 'tcp and tcp[tcpflags] & (tcp-syn) != 0 and tcp src port ' + str(self.port) + ' and ip host ' + packet['IP'].src
             if len(ports) != 1:
                 filter += ' and dst port ('
                 first = True
@@ -57,9 +57,36 @@ class server(object):
                 filter += ')'
             else:
                 filter += ' and dst port ' + str(ports[0])
-            packets = sniff(count=self.knocks, filter=filter)
+            packets = sniff(count=self.knocks * 2, filter=filter, timeout=5)
+            if not (len(packets) >= self.knocks):
+                log('Challenge unsuccessful, remaining...')
+            else:
+                d = {}
+                for port in ports:
+                    d[port] = 0
+                i = 0
+                c_ports = ports.copy()
+                for packet in packets:
+                    tcp = packet["TCP"]
+                    if len(ports) != 0:
+                        try:
+                            if d.get(tcp.dport) == 0:
+                                d[tcp.dport] = i
+                            ports.remove(tcp.dport)
+                        except ValueError:
+                            pass
+                    i += 1
+                sorted_inde = sorted(d.items(), key=operator.itemgetter(1))
+                i = 0
+                right_seq = True
+                for key_val in sorted_inde:
+                    if key_val[0] != c_ports[i]:
+                        right_seq = False
 
-            unlock()
+                if len(ports) == 0 & right_seq:
+                    unlock()
+
+
 
 
     def p(self, i: int, c: int, k: int):
