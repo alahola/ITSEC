@@ -58,7 +58,7 @@ class server(object):
             else:
                 filter += ' and dst port ' + str(ports[0])
             packets = sniff(count=self.knocks, filter=filter)
-            
+
             unlock()
 
 

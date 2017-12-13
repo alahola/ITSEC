@@ -4,6 +4,7 @@ from _sha256 import sha256
 from scapy.all import *
 
 
+
 class client(object):
 
     def __init__(self, host, port, key: int, knocks):
@@ -26,18 +27,18 @@ class client(object):
 
         udp = packet["UDP"]
         challenge = udp.payload
-        print("Client received challenge: " , challenge)
-                
+        print("Client received challenge: ", challenge)
+
         knock_point = 0
-                
+
         ports = []
-                
+
         c = self.byteToString(challenge)
         cInt = int(c)
         while knock_point < self.knocks:
             ports.append(self.p(knock_point, cInt, key))
-            knock_point = knock_point+1
-                
+            knock_point = knock_point + 1
+
         for port in ports:
             print("Sending tcp to ", port)
             tcp_packet = IP(
@@ -62,8 +63,6 @@ class client(object):
         val_hex = sharesult.hexdigest()
         val_int = int(val_hex, 16)
         return 1024 + (val_int % 28657)
-
-
 
 
 parser = argparse.ArgumentParser(description='monitor')
