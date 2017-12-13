@@ -11,3 +11,63 @@ b) yVBaUuLb
 c) shainak@mars.avocado.com
 
 d) coreys@delta.peach.edu
+
+
+
+4)
+
+Der Server wird mit dem Befehl
+server.py [-h] --port INT --shared-key INT --num-knocks INT
+gestartet.
+
+Die Abhängigkeiten sind
+    import argparse
+    import operator
+    from _sha256 import sha256
+    from scapy.all import *
+
+Ein Beispiel Aufruf könnte sein:
+    sudo python3 server.py --port 12345 --shared-key 12 --num-knocks 7
+
+Der Client wird mit dem Befehl
+    client.py [-h] --shared-key INT --num-knocks INT IP/DOMAIN PORT
+gestartet.
+
+Die Abhängigkeiten sind
+    import argparse
+    from _sha256 import sha256
+    from scapy.all import *
+
+Ein Beispiel Aufruf könnte sein:
+    sudo python3 client.py --shared-key 12 --num-knocks 7 localhost 12345
+
+Der Server und der Client werden mit den richtigen Parametern aufgerufen.
+Der Client kann den richtigen Port freischalten.
+Wartet auf weitere Anfragen.
+
+Wenn der Client einen falschen Key hat:
+    sudo python3 client.py --shared-key 123 --num-knocks 7 localhost 12345
+
+Startet der Server eine challenge mit dem Client. Dieser kann sie nicht lösen und
+erhält keine weitere Antwort. Der Server logt den Fehlversuch.
+Wartet auf weitere Anfragen.
+
+Wenn der Client einen falschen Port hat und einen falschen shared-key:
+    sudo python3 client.py --shared-key 123 --num-knocks 7 localhost 123
+
+Bleibt der Server ruhig. Den er hört nur auf port 12345 (oberes Beispiel)
+
+Wenn der Client eine falsche Anzahl num-knocks hat:
+    sudo python3 client.py --shared-key 12 --num-knocks 3 localhost 12345
+
+Akzeptiert er die Antworten nicht. Der Port bleibt geschlossen.
+Wartet auf weitere Anfragen.
+
+
+In die Implementierung ist eingeflossen, dass mehr Traffic an den Ports ankommen könnte.
+Die Portüberwachung wurde mit sniff() realisiert.
+Der Filter von sniff() wurde so geschrieben, dass die richtigen Packets abgefangen werden.
+Trotzdem wurde bei Tests festgestellt, dass Packets mehrfach ankamen.
+Deshalb wird ein Buffer von der doppelten Anzahl an erwarteten Knocks gesetzt.
+
+Der Server schreibt "unlocked" wenn an alle Ports angeklopft wird und die Reihenfolge korrekt ist.
