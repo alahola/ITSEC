@@ -1,0 +1,14 @@
+3. 
+a) Laut VirusTotal wurde
+F-PROT
+UPX
+PEiD
+UPX 2.90 [LZMA] -> Markus Oberhumer, Laszlo Molnar & John Reiser
+benutzt.
+
+b) 7 aus 67 erkennen die Datei als schädlich.
+2017-12-16 12:37:40 UTC
+
+3 Scanner konnten nicht geladen werden.
+
+c) 
