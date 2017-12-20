@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 import os
 
 SIGNATURE = "I bin 1 virus."
