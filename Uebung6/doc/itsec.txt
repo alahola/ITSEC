@@ -1,14 +1,16 @@
 3. 
-a) Laut VirusTotal wurde
-F-PROT
-UPX
-PEiD
-UPX 2.90 [LZMA] -> Markus Oberhumer, Laszlo Molnar & John Reiser
-benutzt.
+a) Laut VirusTotal wurde UPX 2.90 (Ultimate Packer for eXecutables)
 
-b) 7 aus 67 erkennen die Datei als sch�dlich.
+
+b) 7 aus 67 erkennen die Datei als schädlich.
 2017-12-16 12:37:40 UTC
 
 3 Scanner konnten nicht geladen werden.
 
 c) 
+
+Über die File wurde versucht eine Datei aus dem Internet von der Seite http:///eckat zu laden (Spekulation). Es wurde definive Zugriff auf diese Website hergestellt. 
+Es wurde außerdem auf verschiedene dll's zugegriffen, welche Zugriff auf Methoden zum Herstellen von Internetverbindungen und versenden von TCP Packeten besitzen (rpcrt4.dll, Wshtcpip.dll).
+Außerdem wurde auf ddl's unter /system32 zugegriffen, dies könnte auch auf verdächtiges Verhalten hindeuten. 
+Desweiteren würde eine File geöffnet und dann modifiziert. 
+
